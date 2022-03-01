@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+{% block title %}
+Afficher le candidat {{ candidat.nom }}
+{% endblock %}
+{% block body %}
+<div class="row">
+            <div class="col-md-4 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Les informations du candidat</h4>
+                  <p class="card-description">
+                    Basic form layout
+                  </p>
+                  <ul>
+                  <li>{{ candidat.id }}</li>
+                  <li>{{ candidat.Cin }}</li>
+                  <li>{{ candidat.nom }}</li>
+                  <li>{{ candidat.prenom }}</li>
+                  <li>{{ candidat.score }}</li>
+                  <li>{{ candidat.motcle }}</li>
+                  <li> <a href="{{path('candidat_simulate_app',{ 'keyWord' : candidat.motcle, 'score': candidat.score })}}" class="btn btn-secondary">Simulation</a></li>
+                  </ul>
+            </div>
+        </div>
+    </div>
+</div>   
+      
+{% endblock %}

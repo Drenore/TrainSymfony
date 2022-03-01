@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="row">
+            <div class="col-md-4 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Ajouter un candidat</h4>
+                  <p class="card-description">
+                    Basic form layout
+                  </p>
+                 
+
+{{ form_start(formCandidat) }}
+{{ form_widget(formCandidat) }}
+<br>
+
+ <input type="submit" class="btn btn-success">
+{{ form_end(formCandidat) }}
+
+</div>
+</div>
+</div>
+
+ <div class="col-md-8 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Table Candidat</h4>
+                  <div class="table-responsive">
+
+                    <table class="table">
+                    <thead>
+                    <tr>
+                        <th class="text-center">Id</th>
+                        <th class="text-center">Cin</th>
+                        <th class="text-center">nom</th>
+                        <th class="text-center">prenom</th>
+                        <th class="text-center">Score</th>
+                        <th class="text-center">Mot cle</th>
+                        <th class="text-center">Action</th>
+                        <th class="text-center">Afficher</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for candidat in Candidats %}
+                    <tr>
+                    <td class="text-center">{{ candidat.id}}</td>
+                    <td class="text-center">{{ candidat.Cin}}</td>
+                    <td class="text-center">{{ candidat.nom}}</td>
+                    <td class="text-center">{{ candidat.prenom}}</td>
+                    <td class="text-center">{{ candidat.score}}</td>
+                    <td class="text-center">{{ candidat.motcle}}</td>
+                    <td class="text-center"><a href="{{ path('sup_candidat',{ 'id' : candidat.id } ) }}" class="btn btn-danger"> Supprimer </a></td>
+                    <td class="text-center"><a href="{{ path('show_candidat',{ 'id' : candidat.id } ) }}" class="btn btn-primary"> afficher </a></td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>        
+        </div>    
+    </div>    
+</div>           
+{% endblock %}
