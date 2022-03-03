@@ -73,19 +73,4 @@ class CandidatRepository extends ServiceEntityRepository
         ;
     }
     */
-    public function simulateSujetCandidat($motcle,$score) 
-    {
-        return $this->createQueryBuilder('m')
-        ->where("m.createdAt < ?1")
-        ->andWhere(
-            new Expr\Orx([
-                "m.deletedAt IS NULL",
-                "m.deletedAt > ?2",
-            ])
-        )
-        ->setParameter(1, $motcle)
-        ->setParameter(2, $score)
-        ->getQuery()
-        ->getResult();
-    }
 }

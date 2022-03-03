@@ -20,7 +20,7 @@ class Candidat
     /**
      * @ORM\Column(type="integer")
      */
-    private $Cin;
+    private $cin;
 
     /**
      * @ORM\Column(type="string", length=50)
@@ -42,16 +42,6 @@ class Candidat
      */
     private $motcle;
 
-    /**
-     * @var App\Entity\Sujet 
-     * 
-     * @ORM\ManyToOne(targetEntity="App\Entity\Candidat")
-     * @ORM\JoinColumns({
-     *      @ORM\JoinColumn(name="idsujet", nullable=true, referencedColumnName="id")
-     * })
-     */
-    private $idSujet;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -59,12 +49,12 @@ class Candidat
 
     public function getCin(): ?int
     {
-        return $this->Cin;
+        return $this->cin;
     }
 
-    public function setCin(int $Cin): self
+    public function setCin(int $cin): self
     {
-        $this->Cin = $Cin;
+        $this->cin = $cin;
 
         return $this;
     }
@@ -113,17 +103,6 @@ class Candidat
     public function setMotcle(string $motcle): self
     {
         $this->motcle = $motcle;
-
-        return $this;
-    }
-    public function getIdSujet(): ?int
-    {
-        return $this->idSujet;
-    }
-
-    public function setIdSujet(int $idSujet): self
-    {
-        $this->idSujet = $idSujet;
 
         return $this;
     }
